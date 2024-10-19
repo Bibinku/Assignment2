@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'index.html' %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="card w-100">
+              <div class="card-body p-4">
+                <h5 class="card-title fw-semibold mb-4">Product  Details</h5>
+                <div class="table-responsive">
+                  <table class="table text-nowrap mb-0 align-middle">
+                    <thead class="text-dark fs-4">
+                      <tr>
+
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Name</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Price</h6>
+                        </th>
+
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Edit</h6>
+                        </th>
+                        <th class="border-bottom-0">
+                          <h6 class="fw-semibold mb-0">Delete</h6>
+                        </th>
+
+                      </tr>
+                    </thead>
+                    <tbody>
+                    {% for i in cata %}
+                      <tr>
+
+                        <td class="border-bottom-0">
+                            <h6 class="fw-semibold mb-1">{{i.name}}</h6>
+
+                        </td>
+                        <td class="border-bottom-0">
+                          <p class="mb-0 fw-normal">{{i.price}}</p>
+                        </td>
+
+
+
+
+                        <td>
+                              <a href="{% url 'editproduct' Proid=i.id %}">
+                                <button type="button" class="btn btn-outline-dark m-1">Edit</button>
+                              </a>
+                            </td>
+
+                          <td>
+                              <a href="{% url 'deleteproduct' Proid=i.id %}">
+                              <button type="button" class="btn btn-outline-danger m-1">Delete</button>                              </a>
+                            </td>
+
+
+
+                      </tr>
+                     {% endfor %}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+</body>
+</html>
+{% endblock %}
